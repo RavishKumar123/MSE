@@ -58,7 +58,7 @@
                    android:drawableLeft="@drawable/ic_mail_outline_black_24dp"
                    android:layout_marginEnd="20dp"
                    android:layout_marginStart="20dp"
-                   android:hint="EMAIL/MOBILE"
+                   android:hint="EMAIL"
                    android:padding="20dp"
                    android:textSize="14sp"
                    android:textColorHint="#606060"
@@ -95,7 +95,9 @@
                    android:layout_marginRight="25dp"
                    android:id="@+id/signin"
                    android:src="@drawable/ic_add_black_24dp"
-                   android:background="@drawable/button_background"/>
+                   android:background="@drawable/button_background"
+                   android:onClick="signupScreen"
+                   />
 
 
            </LinearLayout>
@@ -126,7 +128,6 @@
                    android:id="@+id/login"
                    android:background="@drawable/button_background"
                    android:text="LOGIN"
-                   android:onClick="dashoardScreen"
                    android:textColor="@android:color/white" />
            </LinearLayout>
        </LinearLayout>

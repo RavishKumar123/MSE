@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1061541542711",
+    "firebase_url": "https://testro-97c3f.firebaseio.com",
+    "project_id": "testro-97c3f",
+    "storage_bucket": "testro-97c3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061541542711:android:218d5b8e4bb08686",
+        "android_client_info": {
+          "package_name": "com.example.ravish.testro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1061541542711-j8l2baep5jtcgla2ie6melv4jfr9a79g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ravish.testro",
+            "certificate_hash": "c4ac7311ffb7c0bb28bb3fcbd7ba50f9f1ac5032"
+          }
+        },
+        {
+          "client_id": "1061541542711-sr83g5ul4s0qs3pbvf56igthtbns519k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB25OJb7JdyTPwk_1i7uCZpQrtgOPEOWw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1061541542711-sr83g5ul4s0qs3pbvf56igthtbns519k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

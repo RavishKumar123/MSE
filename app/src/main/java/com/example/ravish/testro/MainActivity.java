@@ -18,16 +18,42 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     BottomNavigationView bottomNavigationView;
+    NavigationView navigationView;
     Fragment fragment;
+    private FirebaseAuth mAuth;
+    TextView userEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        userEmail = findViewById(R.id.userEmail);
+        mAuth = FirebaseAuth.getInstance();
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        Menu navigation = navigationView.getMenu();
+        MenuItem logoutItem  = navigation.findItem(R.id.nav_Logout);
+        logoutItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                switch(menuItem.getItemId()) {
+                    case R.id.nav_Logout:
+                        logout();
+                        return  true;
+                        default:
+                            return false;
 
+                }
+            }
+        });
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomTab);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -74,6 +100,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void logout() {
+        mAuth.signOut();
+        Intent intent = new Intent(MainActivity.this,login.class);
+        startActivity(intent);
+
     }
 
     private void setFragment(Fragment fragment) {
@@ -129,12 +162,30 @@ public class MainActivity extends AppCompatActivity
             // Handle the camera action
         }  else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_Logout) {
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if(user != null){
+            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+            View headerView = navigationView.getHeaderView(0);
+            TextView navUsername = (TextView) headerView.findViewById(R.id.userNaming);
+            TextView navUserEmail = (TextView) headerView.findViewById(R.id.userEmail);
+            navUserEmail.setText(user.getEmail());
+            navUsername.setText(user.getDisplayName());
+        }else{
+            Intent intent = new Intent(MainActivity.this,login.class);
+            startActivity(intent);
+        }
+
     }
 }
