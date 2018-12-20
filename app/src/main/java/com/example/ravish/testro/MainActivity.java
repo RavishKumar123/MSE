@@ -21,11 +21,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 
 import java.net.URL;
 
@@ -180,14 +182,14 @@ public class MainActivity extends AppCompatActivity
         super.onStart();
         FirebaseUser user = mAuth.getCurrentUser();
         if(user != null){
-//            URL url = new URL("http://image10.bizrate-images.com/resize?sq=60&uid=2216744464");
-//            Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-//            //imageView.setImageBitmap(bmp);
-
             NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
             View headerView = navigationView.getHeaderView(0);
             TextView navUsername = (TextView) headerView.findViewById(R.id.userNaming);
             TextView navUserEmail = (TextView) headerView.findViewById(R.id.userEmail);
+            ImageView profilePic = (ImageView) headerView.findViewById(R.id.imageView);
+            if(user.getPhotoUrl() != null){
+                Picasso.get().load(user.getPhotoUrl()).into(profilePic);
+            }
             navUserEmail.setText(user.getEmail());
             navUsername.setText(user.getDisplayName());
         }else{
