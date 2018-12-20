@@ -1,6 +1,8 @@
 package com.example.ravish.testro;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -24,6 +26,8 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.net.URL;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -176,6 +180,10 @@ public class MainActivity extends AppCompatActivity
         super.onStart();
         FirebaseUser user = mAuth.getCurrentUser();
         if(user != null){
+//            URL url = new URL("http://image10.bizrate-images.com/resize?sq=60&uid=2216744464");
+//            Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+//            //imageView.setImageBitmap(bmp);
+
             NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
             View headerView = navigationView.getHeaderView(0);
             TextView navUsername = (TextView) headerView.findViewById(R.id.userNaming);
