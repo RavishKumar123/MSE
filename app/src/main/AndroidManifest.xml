@@ -21,7 +21,10 @@
         </activity>
         <!-- <activity android:name=".login"></activity> -->
         <activity android:name=".Signup" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:windowSoftInputMode="adjustPan"
+            />
         <activity android:name=".login" />
         <activity android:name=".Resturants" />
         <activity android:name=".ResturantDetail"></activity>

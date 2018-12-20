@@ -36,13 +36,15 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Resturans"
+                    android:text="Resturants"
+                    android:fontFamily="@font/dancing"
                     android:textColor="#fff"
                     android:textStyle="bold"
-                    android:textSize="40sp"
+                    android:textSize="50sp"
                     android:layout_marginLeft="58dp"
                     android:paddingTop="30dp"
                     android:onClick="check"
+
                     />
 
             </LinearLayout>
