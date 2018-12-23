@@ -69,18 +69,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="453K"
+                    android:text="Add Review"
                     android:textColor="@color/white"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    android:id="@+id/addReview"
+                    android:padding="10dp"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="followers"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="13sp" />
 
             </LinearLayout>
 
@@ -96,30 +90,15 @@
             android:paddingBottom="5dp"
             android:paddingTop="5dp">
 
-            <LinearLayout
+            <RatingBar
+                android:id="@+id/ratingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="873"
-                    android:textColor="@color/colorAccents"
-                    android:textSize="25sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="following"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorAccents"
-                    android:textSize="13sp" />
-
-            </LinearLayout>
+                android:clickable="true"
+                android:numStars="3"
+                android:stepSize=".5"
+                android:rating="1"
+                />
 
         </RelativeLayout>
 
@@ -148,7 +127,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email"
+                    android:text="Name"
                     android:textColor="@color/colorAccents"
                     android:textSize="13sp" />
 
@@ -158,7 +137,9 @@
                     android:fontFamily="sans-serif-light"
                     android:text="joey@sharenofood.com"
                     android:textColor="#000000"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:id="@+id/RName"
+                    />
 
                 <View
                     android:layout_width="match_parent"
@@ -187,7 +168,9 @@
                     android:fontFamily="sans-serif-light"
                     android:text="+1-202-555-0157"
                     android:textColor="#000000"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:id="@+id/RPhone"
+                    />
 
                 <View
                     android:layout_width="match_parent"
@@ -206,7 +189,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Twitter"
+                    android:text="Timming"
                     android:textColor="@color/colorAccents"
                     android:textSize="13sp" />
 
@@ -216,7 +199,9 @@
                     android:fontFamily="sans-serif-light"
                     android:text="Ravish Kumar"
                     android:textColor="#000000"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:id="@+id/RTimming"
+                    />
 
                 <View
                     android:layout_width="match_parent"
@@ -235,7 +220,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Facebook"
+                    android:text="Address"
                     android:textColor="@color/colorAccents"
                     android:textSize="13sp" />
 
@@ -245,7 +230,9 @@
                     android:fontFamily="sans-serif-light"
                     android:text="facebook.com/joeytrib"
                     android:textColor="#000000"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:id="@+id/RAddress"
+                    />
 
                 <View
                     android:layout_width="match_parent"

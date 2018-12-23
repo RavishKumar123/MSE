@@ -46,7 +46,7 @@ public class login extends AppCompatActivity {
                     });
                     View views = LayoutInflater.from(login.this).inflate(R.layout.resturant_list_view,null);
                     TextView title = views.findViewById(R.id.lName);
-                    TextView invisible = views.findViewById(R.id.lNames);
+                    TextView invisible = views.findViewById(R.id.timming);
 //                    android.support.v7.widget.CardView cart = view.findViewById(R.id.bankcardId);
 //                    cart.setMinimumHeight(500);
                     invisible.setTextColor(Color.TRANSPARENT);

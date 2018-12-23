@@ -10,8 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -35,18 +38,14 @@ public class resturantListViewAdapter extends ArrayAdapter<ResturantModel> {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(resourse,null);
 
+        TextView name = view.findViewById(R.id.lName);
+        TextView timming = view.findViewById(R.id.timming);
+        ImageView homeImage = view.findViewById(R.id.profile_image);
 
-        TextView textView = view.findViewById(R.id.lName);
         ResturantModel rm = resturantModelList.get(position);
-        textView.setText(rm.resturantName);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context,"dsds",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(context,ResturantDetail.class);
-                context.startActivity(intent);
-            }
-        });
+        name.setText(rm.resturantName);
+        timming.setText(rm.time);
+        Picasso.get().load(rm.homeImage).into(homeImage);
         return  view;
     }
 }

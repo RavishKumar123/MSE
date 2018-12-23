@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
@@ -39,6 +41,7 @@ import com.google.firebase.storage.UploadTask;
 public class Signup extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    Boolean buttonClicked = false;
     private ProgressBar loadingProgressBar;
     EditText email;
     EditText username;
@@ -78,7 +81,7 @@ public class Signup extends AppCompatActivity {
                     });
                     View views = LayoutInflater.from(Signup.this).inflate(R.layout.resturant_list_view,null);
                     TextView title = views.findViewById(R.id.lName);
-                    TextView invisible = views.findViewById(R.id.lNames);
+                    TextView invisible = views.findViewById(R.id.timming);
 //                    android.support.v7.widget.CardView cart = view.findViewById(R.id.bankcardId);
 //
 //                    cart.setLayoutParams(new android.support.v7.widget.CardView.LayoutParams(
@@ -105,9 +108,12 @@ public class Signup extends AppCompatActivity {
         });
 
         ImgUserPhoto = findViewById(R.id.regUserPhoto);
+//        Bitmap bitmap  = BitmapFactory.decodeResource(getResources(),R.drawable.userphoto);
+//        ImgUserPhoto.setImageBitmap(bitmap);
         ImgUserPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonClicked = true;
                 if (Build.VERSION.SDK_INT >= 22) {
 
                     checkAndRequestForPermission();
@@ -160,9 +166,11 @@ public class Signup extends AppCompatActivity {
                 if(task.isSuccessful()){
                     Log.d(email,"createUserWithEmail:success");
                     FirebaseUser user = mAuth.getCurrentUser();
-                    updateUserInfo(username,pickedImgUri,user);
-
-
+                    if(buttonClicked){
+                        updateUserInfo(username,pickedImgUri,user);
+                    }else{
+                        updateUserInfos(username,user);
+                    }
                 }else{
                     Log.w(email,"createUserWithEmail:failure",task.getException());
                     AlertDialog.Builder builder = new AlertDialog.Builder(Signup.this);
@@ -273,5 +281,28 @@ public class Signup extends AppCompatActivity {
 
 
 
+    }
+
+    private void updateUserInfos(final String name, final FirebaseUser currentUser) {
+
+        UserProfileChangeRequest profleUpdate = new UserProfileChangeRequest.Builder()
+                .setDisplayName(name)
+                .build();
+
+
+        currentUser.updateProfile(profleUpdate)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                        if (task.isSuccessful()) {
+                            // user info updated successfully
+                            Intent intent = new Intent(Signup.this,MainActivity.class);
+                            startActivity(intent);
+
+                        }
+
+                    }
+                });
     }
 }

@@ -43,8 +43,6 @@
                     android:textSize="50sp"
                     android:layout_marginLeft="58dp"
                     android:paddingTop="30dp"
-                    android:onClick="check"
-
                     />
 
             </LinearLayout>
