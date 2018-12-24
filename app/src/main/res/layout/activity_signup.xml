@@ -100,10 +100,6 @@
                     android:padding="15dp"
                     android:textColorHint="#606060"
                     android:textSize="14sp" />
-
-
-
-
                 <!--<ImageButton-->
 
                     <!--android:id="@+id/signin"-->

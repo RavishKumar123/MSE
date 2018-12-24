@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +27,7 @@ public class login extends AppCompatActivity {
    private FirebaseAuth mAuth;
    EditText email,pass;
    Button login;
+    private ProgressBar loadingProgressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,9 +36,13 @@ public class login extends AppCompatActivity {
         email = findViewById(R.id.email);
         pass = findViewById(R.id.password);
         login = findViewById(R.id.login);
+        loadingProgressBar = findViewById(R.id.progressBarLogin);
+        loadingProgressBar.setVisibility(View.INVISIBLE);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                loadingProgressBar.setVisibility(View.VISIBLE);
+                login.setVisibility(View.INVISIBLE);
                 if(email.getText().toString().equals("") || pass.getText().toString().equals("")){
                     AlertDialog.Builder builder = new AlertDialog.Builder(login.this);
                     builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
@@ -58,6 +64,8 @@ public class login extends AppCompatActivity {
                     builder.setView(views);
                     builder.create();
                     builder.show();
+                    loadingProgressBar.setVisibility(View.INVISIBLE);
+                    login.setVisibility(View.VISIBLE);
                 }else{
                     loginUser(email.getText().toString(),pass.getText().toString());
                 }
@@ -102,6 +110,8 @@ public class login extends AppCompatActivity {
                           builder.setView(view);
                           builder.create();
                           builder.show();
+                          loadingProgressBar.setVisibility(View.INVISIBLE);
+                          login.setVisibility(View.VISIBLE);
                       }
                   }
               });

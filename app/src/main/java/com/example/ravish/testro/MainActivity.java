@@ -125,6 +125,10 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent(getBaseContext(),Resturants.class);
         startActivity(intent);
     }
+    public void mapsScreen(View view){
+        Intent intent = new Intent(getBaseContext(),googleMap.class);
+        startActivity(intent);
+    }
 
     @Override
     public void onBackPressed() {
