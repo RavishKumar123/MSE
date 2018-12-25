@@ -18,10 +18,6 @@
     <item android:title="Account">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_person_black_24dp"
-                android:title="Profile" />
-            <item
                 android:id="@+id/nav_Logout"
                 android:icon="@drawable/ic_power_settings_new_black_24dp"
                 android:title="Log Out" />

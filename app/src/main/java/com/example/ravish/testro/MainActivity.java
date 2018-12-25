@@ -35,7 +35,7 @@ import com.squareup.picasso.Picasso;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+    implements NavigationView.OnNavigationItemSelectedListener {
     BottomNavigationView bottomNavigationView;
     NavigationView navigationView;
     Fragment fragment;
@@ -56,11 +56,6 @@ public class MainActivity extends AppCompatActivity
 
                         fragment = new Home();
                         setFragment(fragment,"Tesro");
-                        return true;
-                    case R.id.nav_about:
-
-                        fragment = new About();
-                        setFragment(fragment,"About");
                         return true;
                     case R.id.nav_Pofile:
 
@@ -120,6 +115,10 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent(getBaseContext(),Resturants.class);
         startActivity(intent);
     }
+    public void profileScreen(View view){
+        fragment = new Profile();
+        setFragment(fragment,"Profile");
+    }
     public void mapsScreen(View view){
         Intent intent = new Intent(getBaseContext(),googleMap.class);
         startActivity(intent);
@@ -150,9 +149,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -166,9 +163,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_camera) {
             fragment = new Home();
             setFragment(fragment,"Testro");
-        }else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_Logout) {
+        }else if (id == R.id.nav_Logout) {
             logout();
 
         }else if(id == R.id.nav_add_resturant){

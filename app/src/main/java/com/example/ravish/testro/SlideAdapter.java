@@ -16,9 +16,9 @@ public class SlideAdapter extends PagerAdapter {
 
     // list of images
     public int[] lst_images = {
-            R.drawable.image_1,
-            R.drawable.image_2,
-            R.drawable.image_3,
+            R.drawable.resturants,
+            R.drawable.resturants,
+            R.drawable.resturants,
             R.drawable.resturants
     };
     // list of titles

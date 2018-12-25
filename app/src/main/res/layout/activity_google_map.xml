@@ -14,8 +14,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click"
+        android:text="Near Resturants"
         android:onClick="onClick"
+        android:background="@drawable/button_background"
+        android:textColor="@color/whitish"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
         />
 
 </RelativeLayout>

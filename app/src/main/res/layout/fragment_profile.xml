@@ -23,12 +23,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="350dp"
                     android:orientation="vertical">
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_marginTop="45dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:src="@drawable/profile"/>
+                        android:src="@drawable/userphoto"
+                        android:id="@+id/profilePicture"
+                        />
                     <TextView
                         android:layout_marginTop="10dp"
                         android:layout_gravity="center_horizontal"
@@ -37,7 +39,9 @@
                         android:text="Wiliam Snoe"
                         android:textColor="#fff"
                         android:textStyle="bold"
-                        android:textSize="21sp"/>
+                        android:textSize="21sp"
+                        android:id="@+id/profileUsername"
+                        />
                 </LinearLayout>
                 <android.support.v7.widget.CardView
                     android:layout_width="400dp"
@@ -67,7 +71,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="125"
+                                android:text="1"
                                 android:textStyle="bold"
                                 android:textSize="20sp"
                                 android:paddingTop="10dp"
@@ -83,13 +87,13 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Followers"
+                                android:text="Resturants"
                                 android:textSize="20sp"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1205"
+                                android:text="25"
                                 android:textStyle="bold"
                                 android:textSize="20sp"
                                 android:paddingTop="10dp"
@@ -105,13 +109,13 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Following"
+                                android:text="Rated"
                                 android:textSize="20sp"
                                 />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="360"
+                                android:text="30"
                                 android:textStyle="bold"
                                 android:textSize="20sp"
                                 android:paddingTop="10dp"
@@ -144,7 +148,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="20dp"
-                        android:text="Wiliam@gmail.com"/>
+                        android:text="Wiliam@gmail.com"
+                        android:id="@+id/profileEmailTwo"
+                        />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginTop="25dp"
@@ -165,44 +171,8 @@
                         android:paddingLeft="20dp"
                         android:text="+266 225 225"/>
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_marginTop="25dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="25dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:src="@drawable/ic_person_black_24dp"/>
-                    <TextView
-                        android:textStyle="bold"
 
-                        android:layout_gravity="center_vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="20dp"
-                        android:text="Add to group"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginTop="25dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="25dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:src="@drawable/ic_home_black_24dp"/>
-                    <TextView
-                        android:textStyle="bold"
 
-                        android:layout_gravity="center_vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="20dp"
-                        android:text="Show all comments"/>
-                </LinearLayout>
             </LinearLayout>
 
             <Button
@@ -214,7 +184,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
-                android:text="Follow Me"/>
+                android:id="@+id/signout"
+                android:text="Sign out"/>
 
         </LinearLayout>
     </ScrollView>
