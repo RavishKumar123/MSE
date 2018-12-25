@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -39,9 +38,10 @@
             android:name=".MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".login" />
+        <activity android:name=".login"  />
         <activity android:name=".Resturants" />
         <activity android:name=".ResturantDetail" />
+        <activity android:name=".AddResturant"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -50,16 +50,17 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/. 
         -->
-        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
-
-
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyAnjkxsApMpRk3AZiyoPKSOQWpEIxMzgNk" />
 
         <activity
             android:name=".googleMap"
-            android:label="@string/google_maps_key"></activity>
+            android:label="@string/google_maps_key" />
+
     </application>
 
 </manifest>

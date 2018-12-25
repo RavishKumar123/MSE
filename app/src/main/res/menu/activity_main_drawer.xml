@@ -8,6 +8,10 @@
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
             android:title="Dashboard" />
+        <item
+            android:id="@+id/nav_add_resturant"
+            android:icon="@drawable/ic_add_box_black_24dp"
+            android:title="Add Resturant" />
 
     </group>
 

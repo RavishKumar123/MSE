@@ -15,5 +15,10 @@
       android:icon="@drawable/ic_person_black_24dp"
       android:id="@+id/nav_Pofile"
       />
+  <item
+      android:title="Add Resturant"
+      android:icon="@drawable/ic_add_box_black_24dp"
+      android:id="@+id/nav_Add"
+      />
 
 </menu>

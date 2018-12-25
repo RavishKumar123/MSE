@@ -11,6 +11,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,8 +21,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,22 +47,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         userEmail = findViewById(R.id.userEmail);
         mAuth = FirebaseAuth.getInstance();
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-        Menu navigation = navigationView.getMenu();
-        MenuItem logoutItem  = navigation.findItem(R.id.nav_Logout);
-        logoutItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                switch(menuItem.getItemId()) {
-                    case R.id.nav_Logout:
-                        logout();
-                        return  true;
-                        default:
-                            return false;
-
-                }
-            }
-        });
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomTab);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -68,17 +55,21 @@ public class MainActivity extends AppCompatActivity
                     case R.id.nav_home:
 
                         fragment = new Home();
-                        setFragment(fragment);
+                        setFragment(fragment,"Tesro");
                         return true;
                     case R.id.nav_about:
 
                         fragment = new About();
-                        setFragment(fragment);
+                        setFragment(fragment,"About");
                         return true;
                     case R.id.nav_Pofile:
 
                         fragment = new Profile();
-                        setFragment(fragment);
+                        setFragment(fragment,"Profile");
+                        return true;case
+                     R.id.nav_Add:
+                        fragment = new Add();
+                        setFragment(fragment,"Add Resturant");
                         return true;
                         default:
                             return false;
@@ -98,6 +89,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -115,11 +107,14 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    private void setFragment(Fragment fragment) {
+    private void setFragment(Fragment fragment,String title) {
+        ActionBar ab = getSupportActionBar();
+        ab.setTitle(title);
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.frag,fragment);
         ft.commit();
+
     }
     public void resturantScreen(View view){
         Intent intent = new Intent(getBaseContext(),Resturants.class);
@@ -169,11 +164,16 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
-        }  else if (id == R.id.nav_share) {
+            fragment = new Home();
+            setFragment(fragment,"Testro");
+        }else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_Logout) {
+            logout();
 
+        }else if(id == R.id.nav_add_resturant){
+            fragment = new Add();
+            setFragment(fragment,"Add Resturant");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -200,6 +200,8 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this,login.class);
             startActivity(intent);
         }
+
+
 
     }
 }
