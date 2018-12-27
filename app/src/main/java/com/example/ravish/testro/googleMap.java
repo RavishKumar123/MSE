@@ -77,14 +77,14 @@ public class googleMap extends FragmentActivity implements
         String hospital = "hospital", school = "school", restaurant = "restaurant";
         Object transferData[] = new Object[2];
         GetNearbyPlaces getNearbyPlaces = new GetNearbyPlaces();
-                mMap.clear();
+//                mMap.clear();
                 String url = getUrl(latitide, longitude, restaurant);
                 transferData[0] = mMap;
                 transferData[1] = url;
                 Toast.makeText(getBaseContext(),url,Toast.LENGTH_LONG).show();
                 getNearbyPlaces.execute(transferData);
-                Toast.makeText(this, "Searching for Nearby Hospitals...", Toast.LENGTH_SHORT).show();
-                Toast.makeText(this, "Showing Nearby Hospitals...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Searching for Nearby Resturants...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Showing Nearby Resturants...", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -96,7 +96,7 @@ public class googleMap extends FragmentActivity implements
         googleURL.append("&radius=" + ProximityRadius);
         googleURL.append("&type=" + nearbyPlace);
         googleURL.append("&sensor=true");
-        googleURL.append("&key=" + "AIzaSyAnjkxsApMpRk3AZiyoPKSOQWpEIxMzgNk");
+        googleURL.append("&key=" + "AIzaSyCE2SFChFE1WvKpL2GFKUfCSTrZPfPbGJI");
 
         Log.d("GoogleMapsActivity", "url = " + googleURL.toString());
 

@@ -1,5 +1,4 @@
 package com.example.ravish.testro;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
@@ -13,6 +12,7 @@ import android.widget.TextView;
 public class SlideAdapter extends PagerAdapter {
     Context context;
     LayoutInflater inflater;
+
 
     // list of images
     public int[] lst_images = {

@@ -139,7 +139,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="TO"
-
                                 android:textSize="15dp"
                                 />
                             <Spinner
@@ -148,9 +147,6 @@
                                 android:prompt="@string/time_prompt"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-
-
-
                                 android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
                                 android:drawablePadding="10dp"
                                 android:hint="PHONE"
@@ -164,9 +160,6 @@
                                 android:prompt="@string/time_prompt"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-
-
-
                                 android:hint="PHONE"
                                 android:inputType="number"
                                 android:padding="15dp"
